@@ -34,3 +34,11 @@ for i in range(11):
     label_index = y_train[i]
     print(f"Sample {i}: Label {label_index} -> {class_names[label_index]}")
 model = build_cnn(input_shape=(28, 28, 1), num_classes=10)
+
+
+model.compile(
+    optimizer='adam',
+    loss='sparse_categorical_crossentropy',
+    metrics=['accuracy']
+)
+model.summary()
