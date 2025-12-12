@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tensorflow.keras.datasets import fashion_mnist
 from tensorflow.keras.utils import to_categorical
-
+from model import build_cnn
 (x_train, y_train), (x_test, y_test) = fashion_mnist.load_data()
 
 print("Train shape:", x_train.shape, y_train.shape)
@@ -11,8 +11,8 @@ print("Test shape:", x_test.shape, y_test.shape)
 
 
 
-plt.imshow(x_train[1], cmap='gray')
-plt.title(f'Label: {y_train[0]}')
+plt.imshow(x_train[3], cmap='gray')
+plt.title(f'Label: {y_train[3]}')
 plt.show()
 
 
@@ -26,3 +26,11 @@ x_test = x_test.reshape(-1, 28, 28, 1)
 
 print("Train shape after reshape:", x_train.shape)
 print("Test shape after reshape:", x_test.shape)
+
+
+class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat','Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+
+for i in range(11):
+    label_index = y_train[i]
+    print(f"Sample {i}: Label {label_index} -> {class_names[label_index]}")
+model = build_cnn(input_shape=(28, 28, 1), num_classes=10)

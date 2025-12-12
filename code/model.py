@@ -25,3 +25,5 @@ def build_cnn(input_shape=(28,28,1), num_classes=10):
     model.add(Dense(num_classes, activation='softmax'))
 
     return model
+
+model = build_cnn()
