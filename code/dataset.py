@@ -8,13 +8,6 @@ def load_and_preprocess(val_ratio=0.1):
  print("Train shape:", x_train.shape, y_train.shape)
  print("Test shape:", x_test.shape, y_test.shape)
 
-
- # plt.imshow(x_train[3], cmap='gray')
- # plt.title(f'Label: {y_train[3]}')
- # plt.show()
-
-
-
  x_train= (x_train / 255.0)
  x_test= (x_test / 255.0)
 
