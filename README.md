@@ -49,7 +49,7 @@ import tensorflow as tf
 from tensorflow import keras
 
 # Define the absolute path to your saved model file
-MODEL_PATH = 'saved_model/best_model.keras' 
+MODEL_PATH = 'saved_model/best_model.h5' 
 
 # Load the model
 model = keras.models.load_model(MODEL_PATH)
