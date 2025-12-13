@@ -11,6 +11,10 @@ def build_cnn(input_shape=(28,28,1), num_classes=10):
     model.add(Conv2D(64, (3,3), activation='relu', padding='same'))
     model.add(BatchNormalization())
     model.add(MaxPooling2D((2,2)))
+    
+    model.add(Conv2D(128, (3, 3), activation='relu', padding='same'))
+    model.add(BatchNormalization())
+    model.add(MaxPooling2D((2, 2)))
 
     model.add(Flatten())
 
