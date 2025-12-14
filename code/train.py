@@ -17,7 +17,7 @@ def main():
     )
 
     datagen = tf.keras.preprocessing.image.ImageDataGenerator(
-        rotation_range=15,
+        rotation_range=10,
         width_shift_range=0.1,
         height_shift_range=0.1,
         zoom_range=0.1,
@@ -26,14 +26,14 @@ def main():
     datagen.fit(x_train)
 
     callbacks = [
-        EarlyStopping(patience=5, monitor='val_loss', restore_best_weights=True),
+        EarlyStopping(patience=7, monitor='val_loss', restore_best_weights=True),
         ModelCheckpoint("../saved_model/best_model.h5", save_best_only=True),
-        ReduceLROnPlateau(patience=3, factor=0.3, monitor="val_loss"),
+        ReduceLROnPlateau(patience=2, factor=0.3, monitor="val_loss"),
     ]
 
     history = model.fit(
         datagen.flow(x_train, y_train, batch_size=64),
-        epochs=30,
+        epochs=40,
         validation_data=(x_val, y_val),
         callbacks=callbacks
     )

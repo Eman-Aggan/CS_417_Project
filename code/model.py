@@ -16,11 +16,11 @@ def build_cnn(input_shape=(28,28,1), num_classes=10):
 
     model.add(Dense(128, activation='relu'))
     model.add(BatchNormalization())
-    model.add(Dropout(0.4))
+    model.add(Dropout(0.3))
 
     model.add(Dense(64, activation='relu'))
     model.add(BatchNormalization())
-    model.add(Dropout(0.3))
+    model.add(Dropout(0.2))
 
     model.add(Dense(num_classes, activation='softmax'))
 
